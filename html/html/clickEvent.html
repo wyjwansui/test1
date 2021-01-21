@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击</title>
+    <script src="../jquery-1.8.1.min.js"></script>
+    <script>
+        $(document).click(function(e) {
+            console.log("======= click =========")
+            console.log($(e.target));//当前点击的对象
+            console.log($(e.target).prop("tagName"));
+            console.log($(e.target).attr("id"));
+        })
+
+
+    </script>
+</head>
+
+<body>
+    <div id="div0" style="border: solid 1px blue;width: 600px;height: 300px">
+        <div id="div01" style="background-color: aqua;width: 600px;height: 100px">
+
+        </div>
+        <div id="div02"  style="background-color: antiquewhite;width: 600px;height: 100px">
+
+        </div>
+    </div>
+</body>
+<script>
+    function Y($) {
+        $ = $ || T;
+        var B = $[N], A = B[H], _ = B.body;
+        B = (A && A.scrollTop != null && (A.scrollTop > _.scrollLeft || A.scrollLeft > _.scrollLeft)) ? A : _;
+        return {"top": B.scrollTop, "left": B.scrollLeft}
+    }
+
+    $(document).click(function(e) {
+        console.log("======= getAbsPosition =========")
+        console.log(getAbsPosition($(e.target)[0]))
+
+    })
+    var getAbsPosition = function(el){
+        var el2 = el;
+        var curtop = 0;
+        var curleft = 0;
+        if (document.getElementById || document.all) {
+            do  {
+                curleft += el.offsetLeft-el.scrollLeft;
+                curtop += el.offsetTop-el.scrollTop;
+                el = el.offsetParent;
+                el2 = el2.parentNode;
+                while (el2 != el) {
+                    curleft -= el2.scrollLeft;
+                    curtop -= el2.scrollTop;
+                    el2 = el2.parentNode;
+                }
+            } while (el.offsetParent);
+
+        } else if (document.layers) {
+            curtop += el.y;
+            curleft += el.x;
+        }
+        return [curtop, curleft];
+    };
+</script>
+</html>
+

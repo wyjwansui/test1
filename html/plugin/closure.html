@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包保存变量</title>
+    <script>
+        function A(a){
+            function B(b){
+                return a + b;
+            }
+            return B;
+        }
+        var C = A(1);
+        var result = C(2);
+        console.log(result);//输出结果 3
+    </script>
+</head>
+<body>
+调用 A 的时候 传进去的参数 1 没有被销毁，而是被保存起来了，这就是闭包保存变量的特点。
+</body>
+</html>

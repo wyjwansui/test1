@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery插件</title>
+    <script>
+
+        var plugin =(function(){
+            function _firstFunc(str){
+                console.log(str);
+            };
+            return{
+                firstFunc: _firstFunc,
+            };
+        })();//最后面的小括号 () 表示执行该函数
+
+        plugin.firstFunc("Hello ! I am firstFunc");
+
+    </script>
+</head>
+<body>
+</body>
+</html>

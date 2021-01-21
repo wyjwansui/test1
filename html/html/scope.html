@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域</title>
+    <script src="../jquery-1.8.1.min.js"></script>
+    <script>
+        var scope = "global";
+
+        function t() {
+            console.log(scope);
+            var scope = "local"
+            console.log(scope);
+        }
+
+        t();
+        console.log(scope);
+
+
+        function buttonInit1() {
+            for (var i = 1; i < 4; i++) {
+                let b = document.getElementById("button" + i);
+                b.addEventListener("click", function () {
+                    console.log("Button" + i);                      //这个匿名函数中没有i,根据作用域链,所以到buttonInit1函数中找,此时i的值为4
+                }, false);
+            }
+        }
+        function buttonInit2() {
+            for (let i = 1; i < 4; i++) { //解决上面的问题，把var改成let，变成局部变量
+                var b = document.getElementById("button1" + i);
+                b.addEventListener("click", function () {
+                    console.log("Button1" + i);
+                }, false);
+            }
+        }
+        function buttonInit3() {
+
+            for (var i = 1; i < 4; i++) {
+                var b = document.getElementById("button1" + i);
+                b.addEventListener("click", function () {
+
+                    console.log("Button1" + i);
+                }, false);
+            }
+        }
+        window.onload = function () {
+            buttonInit1()
+            // buttonInit2()
+            // buttonInit3()
+        };
+
+ /*       $(function () {
+            console.log("this:",this)
+            for (var i = 1; i < 4; i++) {
+                $("#button1" + i).on("click", function () {
+                    console.log("Button1" + i);//这个匿名函数中没有i,根据作用域链，所以到外部找，此时i的值为4，
+                });
+            }
+        });*/
+    </script>
+</head>
+<body>
+<div>
+    <button type="button" id="button1">Button1</button>
+    <button type="button" id="button2">Button2</button>
+    <button type="button" id="button3">Button3</button>
+</div>
+<div style="margin-top: 20px">
+    <button type="button" id="button11">Button11</button>
+    <button type="button" id="button12">Button12</button>
+    <button type="button" id="button13">Button13</button>
+</div>
+</body>
+</html>

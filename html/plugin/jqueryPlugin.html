@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件</title>
+    <script src="../jquery-1.8.1.min.js"></script>
+
+    <script>
+        /**第一种*/
+        $.extend({
+            sayHello: function(name) {
+                console.log('Hello,' + (name ? name : 'Dude') + '!');
+            }
+        })
+        $.sayHello(); //调用
+        $.sayHello('Wayou'); //带参调用
+
+        // 自定义的console，输出特定格式的信息
+        $.extend({
+            log: function(message) {
+                var now = new Date(),
+                    y = now.getFullYear(),
+                    m = now.getMonth() + 1, //！JavaScript中月分是从0开始的
+                    d = now.getDate(),
+                    h = now.getHours(),
+                    min = now.getMinutes(),
+                    s = now.getSeconds(),
+                    time = y + '/' + m + '/' + d + ' ' + h + ':' + min + ':' + s;
+                console.log(time + ' My App: ' + message);
+            }
+        })
+        $.log('initializing...'); //调用
+
+
+        /**第二种*/
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>

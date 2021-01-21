@@ -1,0 +1,25 @@
+
+.input-div{
+    position: absolute;
+    z-index: 1000;
+    display: none;
+}
+.input-div .item-list{
+    border: 1px solid blue;
+    border-radius: 2px;
+    /*position: absolute;*/
+    background-color: #f5efef;
+    padding: 10px 0;
+    /*position: absolute;*/
+    line-height: 32px;
+    font-size: 14px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.2);
+    background-color: #fff;
+}
+.input-div .item-list>div{
+    padding-left: 15px;
+    cursor: pointer;
+}
+.input-div .item-list>div:hover{
+    background-color: #f5efef;
+}

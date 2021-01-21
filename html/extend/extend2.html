@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.8.1.min.js"></script>
+    <script src="extend.js"></script>
+    <script src="extend1.js"></script>
+    <script>
+        $(function () {
+            // $.test1();
+            // $("#test-btn").test2();
+            // $("#test-btn").test3();
+            // $("#test-btn2").test3();
+
+        });
+    </script>
+</head>
+<body>
+<div>
+    <button type="button" id="test-btn">测试</button>
+</div>
+<div>
+    <button type="button" id="test-btn2">测试2</button>
+</div>
+</body>
+<script>
+
+
+    $.fn.myPlugin = function() {
+        console.log("myPlugin")
+        //在这里面,this指的是用jQuery选中的元素
+        this.css('color', 'red');
+
+    }
+    $("#test-btn2").myPlugin();
+</script>
+</html>

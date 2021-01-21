@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+
+</head>
+<body>
+    <div id="hello">ssss</div>
+    <div Id="hi"></div>
+</body>
+</html>
+<script type="text/javascript">
+    var HelloWorld = function(objId){
+        var _get_dom = function(Id){
+            return document.getElementById(Id);
+        }
+        var _aim_obj = _get_dom(objId);
+        var _say_hello = function(str){
+            _aim_obj.innerHTML = str;
+        }
+        return{
+            sayHello:_say_hello
+        }
+    }
+    var Hei = new HelloWorld('hello');
+    HelloWorld('hello').sayHello('Hello World');
+
+    var Hei = new HelloWorld('hi');
+    Hei.sayHello('hi');
+</script>
+<script>
+/*    var HelloWorld = (function(){
+        var _getDom = function(Id){
+            return document.getElementById(Id)
+        }
+        var _sayHello = function(Id,str){
+            _getDom(Id).innerHTML = str;
+        }
+        return {
+            getDom:_getDom,
+            sayHello:_sayHello
+        }
+    }())
+    HelloWorld.sayHello('hello','hello text');*/
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="input-select.css" />
+    <script src="../jquery-1.8.1.min.js"></script>
+    <script src="input-select.js"></script>
+<style>
+    input{
+        padding: 0;
+    }
+</style>
+    <script>
+        $(function () {
+            $(".inputSelect1").inputSelect({data:['选项1','选项2','选项3','选项4']})
+            $(".inputSelect2").inputSelect({data:['选项4','选项5','选项6','选项7']})
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <input id="input1" class="inputSelect1">
+        <input id="input2" class="inputSelect1">
+        <input id="input3" class="inputSelect1">
+        <input id="input4" class="inputSelect1">
+    </div>
+    <div>
+        <input id="input5" class="inputSelect2">
+        <input id="input6" class="inputSelect2">
+        <input id="input7" class="inputSelect2">
+        <input id="input8" class="inputSelect2">
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.8.1.min.js"></script>
+    <style>
+        .container{
+            position: relative;
+        }
+        .container .list{
+            min-width: 300px;
+            min-height: 50px;
+            display: none;
+            border: 1px solid blue;
+            border-radius: 2px;
+            position: absolute;
+            background-color: #f5efef;
+            z-index: 1000;
+            padding: 10px 0;
+            position: absolute;
+            line-height: 32px;
+            font-size: 14px;
+            box-shadow: 0 1px 5px rgba(0,0,0,.2);
+            background-color: #fff;
+        }
+        .container .list>div{
+            padding-left: 15px;
+            cursor: pointer;
+        }
+        .container .list>div:hover{
+            background-color: #f5efef;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#input").click(function () {
+                console.log("input click")
+                $(".list").show();
+            });
+            $(".list-div").click(function () {
+                console.log($(this).val())
+                $("#input").val($(this).html());
+                $(".list").hide();
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <input id="input" />
+        <div class="list">
+            <div class="list-div">测试数据1</div>
+            <div class="list-div">测试数据2</div>
+            <div class="list-div">测试数据3</div>
+            <div class="list-div">测试数据4</div>
+        </div>
+        <div>
+            ===========
+        </div>
+    </div>
+    <div>
+        gggggggggg
+    </div>
+</body>
+</html>
